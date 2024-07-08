@@ -1,0 +1,23 @@
+---
+- name: Errors
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Install httpd
+      ansible.builtin.dnf:
+        name: httpd
+        state: installed
+    - name: Check and start httpd
+      block:
+        - name: Check httpd status
+          command: "systemctl is-active httpd"
+          ignore_errors: yes
+          register: httpd_status
+      rescue:
+        - name: Start httpd if not running
+          ansible.builtin.service:
+            name: httpd
+            state: started
+      always:
+        - name: httpd message
+          debug:
+            msg: HTTPD should be running now.
