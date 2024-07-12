@@ -1,0 +1,21 @@
+characters_dict:
+  Douglas: Human
+  Marvin: Robot
+  Arthur: Human
+characters_items:
+  - key: Douglas
+    value: Human
+  - key: Marvin
+    value: Robot
+  - key: Arthur
+    value: Human
+listips:
+  - 192.168.2.1
+  - 10.0.0.128/25
+  - 172.24.10.0/255.255.255.0
+  - 172.24.10.0/255.255.255.255
+  - ff02::1
+  - ::1
+  - 2001::1/64
+  - 2001::/64
+  - www.redhat.com

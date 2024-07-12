@@ -1,5 +1,5 @@
 ---
-- name: Errors
+- name: Errors and blocks
   hosts: servera.lab.example.com
   tasks:
     - name: Install httpd
@@ -10,7 +10,7 @@
       block:
         - name: Check httpd status
           command: "systemctl is-active httpd"
-          ignore_errors: yes
+          changed_when: false
           register: httpd_status
       rescue:
         - name: Start httpd if not running

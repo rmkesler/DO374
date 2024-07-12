@@ -1,0 +1,11 @@
+---
+- name: Use filters
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    vars.yml
+  tasks:
+    - name: Use filters
+      debug:
+        msg: "{{ listips | ansible.utils.ipaddr('cidr') }}"
+

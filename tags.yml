@@ -1,0 +1,17 @@
+---
+- name: Use tags
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Install httpd
+      ansible.builtin.dnf:
+        name: httpd
+        state: installed
+      tags:
+        - web
+
+    - name: Install mariadb
+      ansible.builtin.dnf:
+        name: mariadb-server
+        state: installed
+      tags:
+        - db
